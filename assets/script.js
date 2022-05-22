@@ -1,6 +1,22 @@
 // Assignment code here
-var generatePassword = function() {
-    
+var generatePassword = function(psswd) {
+    var psswd = "";
+    var characters ="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_-"
+    var length = passwordInfo.pLength;
+
+    // generate a random password with character length selected
+    for (var i = 0; i < length; i++) {
+        var randomString = Math.floor(Math.random() * characters.length);
+        psswd = psswd + characters.substring(randomString, randomString + 1);
+    }
+    return psswd;
+
+   console.log(passwordInfo.pLength);
+   console.log(passwordInfo.upperCase);
+   console.log(passwordInfo.lowerCase);
+   console.log(passwordInfo.numericValue);
+   console.log(passwordInfo.specialChar);
+   console.log(psswd);
 };
 
 // Get password length and validate if length is good
