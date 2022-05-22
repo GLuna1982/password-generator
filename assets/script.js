@@ -13,16 +13,61 @@ var getPLength = function() {
         getPLength();
     }
     else {
-        console.log(pLength);
         return pLength;
+    }
+};
+
+// Ask if user wants to have Upper-case characters
+var confirmUpperCase = function() {
+    var upperCase = window.confirm("Would you like to add at least one upper-case character?");
+    if (upperCase) {
+        return true;
+    }
+    else {
+        return false;
+    }
+};
+
+// Ask if user wants to have Lower-case characters
+var confirmLowerCase = function() {
+    var lowerCase = window.confirm("Would you like to add at least one lower-case character?");
+    if(lowerCase) {
+        return true;
+    }
+    else {
+        return false;
+    }
+};
+
+// Ask if user wants to have numeric characters
+var confirmNumericChar = function() {
+    var numericChar = window.confirm("Would you like to add at least one numeric character?");
+    if(numericChar) {
+        return true;
+    }
+    else {
+        return false;
+    }
+};
+
+// Ask if user wants to have special characters
+var confirmSpecial = function() {
+    var specialChar = window.confirm("Would you like to add at least one special character?");
+    if(specialChar) {
+        return true;
+    }
+    else {
+        return false;
     }
 };
 
 // Password Object
 var passwordInfo = {
     pLength: getPLength(),
-
-
+    upperCase: confirmUpperCase(),
+    lowerCase: confirmLowerCase(),
+    numericValue: confirmNumericChar(),
+    specialChar: confirmSpecial()
 };
 
 // Get references to the #generate element
