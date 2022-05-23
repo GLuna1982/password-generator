@@ -1,14 +1,18 @@
 // Assignment code here
 var generatePassword = function(psswd) {
     var psswd = "";
-    var characters ="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_-"
     var length = passwordInfo.pLength;
+    var characters = psswdConditions();
+    console.log(passwordInfo.passwordCharacters);
+    //var characters ="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_-"
+    
 
     // generate a random password with character length selected
     for (var i = 0; i < length; i++) {
         var randomString = Math.floor(Math.random() * characters.length);
         psswd = psswd + characters.substring(randomString, randomString + 1);
     }
+
     return psswd;
 
    console.log(passwordInfo.pLength);
@@ -25,7 +29,7 @@ var getPLength = function() {
     
     //validate if length value is valid if not restart getPLenght function
     if (pLength < 8 || pLength > 128) {
-        window.alert("Please input a valid answer.")
+        window.alert("Please input a valid answer.");
         getPLength();
     }
     else {
@@ -77,13 +81,45 @@ var confirmSpecial = function() {
     }
 };
 
+
 // Password Object
 var passwordInfo = {
     pLength: getPLength(),
     upperCase: confirmUpperCase(),
     lowerCase: confirmLowerCase(),
     numericValue: confirmNumericChar(),
-    specialChar: confirmSpecial()
+    specialChar: confirmSpecial(),
+};
+
+var psswdConditions = function() {
+    var char = '';
+    //Assign string values to variables if value is true
+    if (passwordInfo.upperCase = true) {
+       var char1 = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    }
+    else {
+        char1 = '';
+    }
+    if (passwordInfo.lowerCase === true) {
+        var char2 = 'abcdefghijklmnopqrstuvwxyz'
+    }
+    else {
+        char2 = '';
+    }
+    if (passwordInfo.numericValue === true) {
+        var char3 = '0123456789';
+    }
+    else {
+        char3 = '';
+    }
+    if (passwordInfo.specialChar === true) {
+        var char4 = '!@#$%^&*()-_+=';
+    }
+    else {
+        char4 = '';
+    }
+    char = char1+char2+char3+char4.trim();
+    return char;
 };
 
 // Get references to the #generate element
