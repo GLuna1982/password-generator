@@ -1,10 +1,9 @@
 // Assignment code here
+//Generates new password
 var generatePassword = function(psswd) {
     var psswd = "";
     var length = passwordInfo.pLength;
     var characters = psswdConditions();
-    console.log(passwordInfo.passwordCharacters);
-    //var characters ="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_-"
     
 
     // generate a random password with character length selected
@@ -14,13 +13,6 @@ var generatePassword = function(psswd) {
     }
 
     return psswd;
-
-   console.log(passwordInfo.pLength);
-   console.log(passwordInfo.upperCase);
-   console.log(passwordInfo.lowerCase);
-   console.log(passwordInfo.numericValue);
-   console.log(passwordInfo.specialChar);
-   console.log(psswd);
 };
 
 // Get password length and validate if length is good
@@ -91,6 +83,7 @@ var passwordInfo = {
     specialChar: confirmSpecial(),
 };
 
+// Checks for password conditions and concatenates characters to be set in variable characters
 var psswdConditions = function() {
     var char = '';
     //Assign string values to variables if value is true
